@@ -68,6 +68,52 @@
     }
     nav ul a:hover { color: var(--light); }
 
+    /* ── HAMBURGER ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 101;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--mid);
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(18, 13, 6, 0.98);
+        border-bottom: 1px solid #2a1f12;
+        padding: 0.5rem 0;
+      }
+      nav ul.open { display: flex; }
+      nav ul li a {
+        display: block;
+        padding: 0.75rem 2rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+      }
+    }
+
     /* ── HERO ── */
     #hero {
       min-height: 92vh;
@@ -188,7 +234,6 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-cta:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-social-wrap { }
     .hero-social-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.6rem;
@@ -505,7 +550,6 @@
       padding: 0.15rem 0.5rem;
       margin-top: 0.2rem;
     }
-    /* Research col */
     .res-block { margin-bottom: 1.8rem; padding-bottom: 1.8rem; border-bottom: 1px solid var(--mid); }
     .res-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .res-tag {
@@ -539,7 +583,6 @@
       color: var(--muted);
       margin-bottom: 0.15rem;
     }
-    /* Prof exp col */
     .exp-entry { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--mid); }
     .exp-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .exp-role {
@@ -602,7 +645,6 @@
       .hero-inner { grid-template-columns: 1fr; }
       .hero-right { flex-direction: row; flex-wrap: wrap; justify-content: center; }
       .hero-tags { width: 100%; }
-      nav ul { gap: 1rem; }
       .teaching-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 540px) {
@@ -616,6 +658,9 @@
   <!-- NAV -->
   <nav>
     <span class="brand">S. <span>Frenna</span></span>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <ul>
       <li><a href="#chi-sono">Chi sono</a></li>
       <li><a href="#didattica">Didattica</a></li>
@@ -978,6 +1023,24 @@
   <footer>
     <p>&copy; 2026 Sergio Frenna · Storico dell'Arte &amp; Digital Culture Specialist · sergio.frenna@gmail.com</p>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu   = document.querySelector('nav ul');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // chiudi il menu al click su un link
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
 </body>
 </html>
