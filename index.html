@@ -315,47 +315,60 @@
     p:last-child { margin-bottom: 0; }
 
     /* ── TEACHING ── */
-    .teaching-grid { display: flex; flex-direction: column; gap: 1.1rem; }
-    .teach-card {
-      background: #fff;
-      border: 1px solid #d9cebb;
-      border-left: 3px solid var(--accent);
-      padding: 1.4rem 1.6rem;
+    .teaching-grid {
       display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 1rem 1.5rem;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
-    .teach-meta { display: flex; flex-direction: column; gap: 0.35rem; padding-top: 0.1rem; }
-    .badge-year {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
+    .teach-card {
       background: var(--ink);
-      color: var(--mid);
-      padding: 0.2rem 0.5rem;
-      text-align: center;
+      border: 1px solid #2a1f12;
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
-    .badge-type {
+    .teach-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .teach-badge {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.57rem;
-      letter-spacing: 0.08em;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      background: #e8dece;
-      color: var(--muted);
-      padding: 0.2rem 0.5rem;
-      text-align: center;
-    }
-    .teach-body h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
-    .teach-inst {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.05em;
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      border: 1px solid var(--accent);
+      padding: 0.2rem 0.55rem;
     }
-    .teach-body ul { margin: 0.3rem 0 0 1.1rem; color: var(--muted); font-size: 0.92rem; }
-    .teach-body ul li { margin-bottom: 0.2rem; }
+    .teach-badge.seminario { color: #7ab8b3; border-color: #7ab8b3; }
+    .teach-year-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .teach-year-label.seminario { color: #7ab8b3; }
+    .teach-card h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--light);
+      line-height: 1.35;
+    }
+    .teach-details { display: flex; flex-direction: column; gap: 0.3rem; }
+    .teach-dl {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.67rem;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .teach-dl .di { flex-shrink: 0; }
 
     /* ── PUBLICATIONS ── */
     .pub-list { display: flex; flex-direction: column; }
@@ -441,9 +454,9 @@
       .hero-right { flex-direction: row; flex-wrap: wrap; justify-content: center; }
       .hero-tags { width: 100%; }
       nav ul { gap: 1rem; }
+      .teaching-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 540px) {
-      .teach-card { grid-template-columns: 1fr; }
       .pub-item { grid-template-columns: 1fr; }
       .hero-name .first, .hero-name .last { font-size: 2.8rem; }
     }
@@ -492,6 +505,7 @@
           <p class="hero-social-label">Profili &amp; Contatti</p>
           <div class="hero-social-icons">
             <a href="mailto:sergio.frenna@gmail.com" title="Email">✉</a>
+            <a href="https://www.disum.unict.it/dottorandi/sergio.frenna" target="_blank" rel="noopener" title="Profilo UNICT" style="width:auto; padding: 0 0.6rem; font-size:0.62rem; letter-spacing:0.04em;">Uni<span style="text-transform:uppercase;">CT</span></a>
             <a href="https://github.com/sergiophrenna" target="_blank" rel="noopener" title="GitHub">GH</a>
             <a href="https://www.linkedin.com/in/sergio-frenna-97a943205/" target="_blank" rel="noopener" title="LinkedIn">in</a>
           </div>
@@ -504,12 +518,12 @@
           <img src="foto.JPG" alt="Sergio Frenna" />
         </div>
         <div class="hero-tags">
-          <div class="hero-tag"><span class="t-dot"></span>Storia dell'Arte Siciliana</div>
-          <div class="hero-tag"><span class="t-dot"></span>Armi e Armature</div>
-          <div class="hero-tag"><span class="t-dot"></span>Patrimonio Culturale</div>
-          <div class="hero-tag"><span class="t-dot"></span>Digital Humanities</div>
-          <div class="hero-tag"><span class="t-dot"></span>Catalogazione ICCD</div>
-          <div class="hero-tag"><span class="t-dot"></span>Ricerca Archivistica</div>
+          <div class="hero-tag">🎨 Storia dell'Arte Siciliana</div>
+          <div class="hero-tag">⚔️ Armi e Armature</div>
+          <div class="hero-tag">🏛️ Patrimonio Culturale</div>
+          <div class="hero-tag">💻 Digital Humanities</div>
+          <div class="hero-tag">📋 Catalogazione ICCD</div>
+          <div class="hero-tag">🔍 Ricerca Archivistica</div>
         </div>
       </div>
 
@@ -554,46 +568,51 @@
         <div class="teaching-grid">
 
           <div class="teach-card">
-            <div class="teach-meta">
-              <span class="badge-year">2025</span>
-              <span class="badge-type">DICOLAB</span>
+            <div class="teach-top">
+              <span class="teach-badge">DICOLAB</span>
+              <span class="teach-year-label">2025</span>
             </div>
-            <div class="teach-body">
-              <h3>Strumenti innovativi per la promozione del patrimonio culturale</h3>
-              <p class="teach-inst">DICOLAB. Digital Culture</p>
-            </div>
-          </div>
-
-          <div class="teach-card">
-            <div class="teach-meta">
-              <span class="badge-year">2026</span>
-              <span class="badge-type">DICOLAB</span>
-            </div>
-            <div class="teach-body">
-              <h3>Strumenti digitali di promozione e valorizzazione museologica</h3>
-              <p class="teach-inst">DICOLAB. Digital Culture</p>
+            <h3>Strumenti innovativi per la promozione del patrimonio culturale</h3>
+            <div class="teach-details">
+              <div class="teach-dl"><span class="di">📌</span><span>Promozione del patrimonio culturale</span></div>
+              <div class="teach-dl"><span class="di">📍</span><span>Hub Dicolab Catania</span></div>
             </div>
           </div>
 
           <div class="teach-card">
-            <div class="teach-meta">
-              <span class="badge-year">2025</span>
-              <span class="badge-type">DICOLAB</span>
+            <div class="teach-top">
+              <span class="teach-badge">DICOLAB</span>
+              <span class="teach-year-label">2026</span>
             </div>
-            <div class="teach-body">
-              <h3>Creazione di contenuti digitali di alta qualità per la valorizzazione del patrimonio culturale</h3>
-              <p class="teach-inst">DICOLAB. Digital Culture</p>
+            <h3>Strumenti digitali di promozione e valorizzazione museologica</h3>
+            <div class="teach-details">
+              <div class="teach-dl"><span class="di">📌</span><span>Valorizzazione museologica</span></div>
+              <div class="teach-dl"><span class="di">📍</span><span>Hub Dicolab Catania</span></div>
             </div>
           </div>
 
           <div class="teach-card">
-            <div class="teach-meta">
-              <span class="badge-year">2025</span>
-              <span class="badge-type">Seminario</span>
+            <div class="teach-top">
+              <span class="teach-badge">DICOLAB</span>
+              <span class="teach-year-label">2025</span>
             </div>
-            <div class="teach-body">
-              <h3>Indagini diagnostiche per la storia dell'arte: principi, metodi, esperienze</h3>
-              <p class="teach-inst">Università di Catania · Dipartimento di Scienze Umanistiche</p>
+            <h3>Creazione di contenuti digitali di alta qualità per la valorizzazione del patrimonio culturale</h3>
+            <div class="teach-details">
+              <div class="teach-dl"><span class="di">📌</span><span>Contenuti digitali per il patrimonio</span></div>
+              <div class="teach-dl"><span class="di">📍</span><span>Hub Dicolab Catania</span></div>
+            </div>
+          </div>
+
+          <div class="teach-card">
+            <div class="teach-top">
+              <span class="teach-badge seminario">SEMINARIO</span>
+              <span class="teach-year-label seminario">2025</span>
+            </div>
+            <h3>Indagini diagnostiche per la storia dell'arte: principi, metodi, esperienze</h3>
+            <div class="teach-details">
+              <div class="teach-dl"><span class="di">📌</span><span>Diagnostica per la storia dell'arte</span></div>
+              <div class="teach-dl"><span class="di">👩‍🏫</span><span>Prof.ssa Barbara Mancuso</span></div>
+              <div class="teach-dl"><span class="di">📍</span><span>Dipartimento di Scienze Umanistiche, Università di Catania (UNICT)</span></div>
             </div>
           </div>
 
