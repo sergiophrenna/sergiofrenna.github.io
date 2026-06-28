@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sergio Frenna — Storico dell'Arte &amp; Digital Culture Specialist</title>
+  <title>Sergio Frenna · Storico dell'Arte &amp; Digital Culture Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:      #1a1208;
-      --accent:   #7b4f28;
-      --light:    #f5f0e8;
-      --mid:      #e8dece;
-      --muted:    #6b5e4e;
-      --max-w:    820px;
+      --ink:    #1a1208;
+      --accent: #7b4f28;
+      --light:  #f5f0e8;
+      --mid:    #e8dece;
+      --muted:  #6b5e4e;
+      --max-w:  960px;
     }
 
     html { scroll-behavior: smooth; }
@@ -24,7 +24,7 @@
       background: var(--light);
       color: var(--ink);
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: 1.125rem;
+      font-size: 1.1rem;
       line-height: 1.75;
     }
 
@@ -34,7 +34,7 @@
       top: 0;
       z-index: 100;
       background: var(--ink);
-      padding: 0.75rem 2rem;
+      padding: 0.7rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -42,7 +42,7 @@
     }
     nav .brand {
       font-family: 'EB Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--mid);
       letter-spacing: 0.06em;
       white-space: nowrap;
@@ -50,11 +50,12 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.4rem;
+      flex-wrap: wrap;
     }
     nav ul a {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mid);
@@ -64,167 +65,278 @@
     nav ul a:hover { color: #fff; }
 
     /* ── HERO ── */
-    header {
+    #hero {
       background: var(--ink);
       color: var(--light);
-      text-align: center;
-      padding: 4rem 2rem 4rem;
       border-bottom: 3px solid var(--accent);
+      padding: 5rem 2rem 4rem;
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
     }
     .hero-photo-wrap {
       position: relative;
-      display: inline-block;
-      margin-bottom: 1.5rem;
+      flex-shrink: 0;
     }
     .hero-photo {
-      width: 130px;
-      height: 130px;
+      width: 170px;
+      height: 170px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
       border: 3px solid var(--accent);
       display: block;
     }
-    header .ornament {
+    .hero-ornament {
       position: absolute;
-      bottom: -0.7rem;
+      bottom: -0.65rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: var(--accent);
       line-height: 1;
     }
-    header h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      line-height: 1.2;
-      margin-top: 0.5rem;
-    }
-    header .subtitle {
-      margin-top: 0.75rem;
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--mid);
-    }
-
-    /* ── PROFILE PHOTO ── */
-    .profile-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    .profile-wrap img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .profile-text { width: 100%; }
-
-    /* ── SECTIONS ── */
-    section {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-    section + section {
-      border-top: 1px solid var(--mid);
-    }
-
-    .section-label {
+    .hero-info { flex: 1; }
+    .hero-role {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-    h2 {
-      font-size: 1.9rem;
+    .hero-info h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+    }
+    .hero-title {
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      border: 1px solid #3a2e20;
+      padding: 0.35rem 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-links a:hover { border-color: var(--accent); color: #fff; }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .hero-tags span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #2a1f12;
+      padding: 0.3rem 0.7rem;
+    }
+
+    /* ── WRAPPER ── */
+    .sections-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--mid);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+    }
+    .section-label-top {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section h2 {
+      font-size: 1.8rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
       color: var(--ink);
     }
-    p { margin-bottom: 1rem; color: var(--muted); }
+    p { color: var(--muted); margin-bottom: 1rem; }
     p:last-child { margin-bottom: 0; }
 
-    /* ── DIVIDER ── */
-    .divider {
-      text-align: center;
-      margin: 2rem 0;
-      color: var(--accent);
-      font-size: 1.4rem;
-      letter-spacing: 0.4em;
+    /* ── TEACHING CARDS ── */
+    .teaching-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
-
-    /* ── PORTFOLIO GRID ── */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .card {
+    .teach-card {
       background: #fff;
       border: 1px solid var(--mid);
-      border-top: 3px solid var(--accent);
-      padding: 1.5rem;
-      transition: box-shadow 0.2s, transform 0.2s;
+      border-left: 3px solid var(--accent);
+      padding: 1.4rem 1.6rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem 1.5rem;
+      align-items: start;
     }
-    .card:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
+    .teach-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding-top: 0.1rem;
     }
-    .card-tag {
+    .badge-year {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      background: var(--ink);
+      color: var(--mid);
+      padding: 0.2rem 0.5rem;
+      text-align: center;
+    }
+    .badge-type {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      background: var(--mid);
+      color: var(--muted);
+      padding: 0.2rem 0.5rem;
+      text-align: center;
+    }
+    .teach-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .teach-body .teach-inst {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--ink);
+    .teach-body p { font-size: 0.92rem; margin-bottom: 0; }
+    .teach-body ul {
+      margin: 0.4rem 0 0 1.1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
-    .card p {
-      font-size: 0.95rem;
-      margin-bottom: 0;
+    .teach-body ul li { margin-bottom: 0.2rem; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    .card a {
-      display: inline-block;
-      margin-top: 1rem;
+    .pub-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--mid);
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 0.8rem 1.5rem;
+      align-items: start;
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-year-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding-top: 0.15rem;
+    }
+    .pub-year {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-weight: 500;
       color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
+      letter-spacing: 0.06em;
     }
-    .card a:hover { color: var(--ink); border-color: var(--ink); }
+    .pub-type {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--mid);
+      padding: 0.15rem 0.4rem;
+      display: inline-block;
+    }
+    .pub-body .pub-title {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .pub-body .pub-authors {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .pub-body .pub-venue {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .pub-body .pub-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+    }
 
     /* ── CONTACT ── */
-    .contact-links {
-      margin-top: 2rem;
+    .contact-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      margin-top: 1.5rem;
     }
-    .contact-links a {
+    .contact-grid a {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink);
@@ -232,9 +344,9 @@
       border: 1px solid var(--mid);
       padding: 0.6rem 1.2rem;
       background: #fff;
-      transition: background 0.2s, border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
-    .contact-links a:hover {
+    .contact-grid a:hover {
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
@@ -247,13 +359,18 @@
       text-align: center;
       padding: 2rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.08em;
     }
 
-    @media (max-width: 600px) {
-      nav ul { gap: 1.2rem; }
-      .portfolio-grid { grid-template-columns: 1fr; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; }
+      .hero-links { justify-content: center; }
+      .hero-tags { justify-content: center; }
+      nav ul { gap: 1rem; }
+      .teach-card { grid-template-columns: 1fr; }
+      .pub-item { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -261,110 +378,233 @@
 
   <!-- NAV -->
   <nav>
-    <span class="brand">Sergio Frenna</span>
+    <span class="brand">S. Frenna</span>
     <ul>
       <li><a href="#chi-sono">Chi sono</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#didattica">Didattica</a></li>
+      <li><a href="#pubblicazioni">Pubblicazioni</a></li>
       <li><a href="#contatti">Contatti</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <header>
-    <div class="hero-photo-wrap">
-      <img src="foto.JPG" alt="Sergio Frenna" class="hero-photo" />
-      <span class="ornament">✦</span>
-    </div>
-    <h1>Sergio Frenna</h1>
-    <p class="subtitle">Storico dell'Arte &amp; Digital Culture Specialist</p>
-  </header>
-
-  <!-- CHI SONO -->
-  <section id="chi-sono">
-    <p class="section-label">Profilo</p>
-    <h2>Chi sono</h2>
-    <p>
-      Mi chiamo Sergio Frenna e lavoro all'intersezione tra due mondi apparentemente lontani:
-      la storia dell'arte e la cultura digitale. Questa doppia formazione mi permette di
-      affrontare problemi complessi con strumenti sia umanistici che tecnici.
-    </p>
-    <p>
-      Come storico dell'arte mi occupo di ricerca, catalogazione, perizie e divulgazione,
-      con particolare attenzione al patrimonio culturale italiano e alle tecniche pittoriche
-      dal Rinascimento all'Ottocento. Come digital culture specialist applico le tecnologie
-      digitali alla valorizzazione e alla diffusione del patrimonio artistico.
-    </p>
-    <p>
-      Credo che la tecnologia, se ben applicata, possa essere uno strumento potente per
-      preservare, valorizzare e rendere accessibile la bellezza dell'arte.
-    </p>
-    <div class="divider">· · ·</div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <p class="section-label">Lavori</p>
-    <h2>Portfolio &amp; Progetti</h2>
-    <p>Una selezione di pubblicazioni, ricerche e progetti digitali.</p>
-
-    <div class="portfolio-grid">
-
-      <div class="card">
-        <p class="card-tag">Ricerca storico-artistica</p>
-        <h3>Titolo progetto / articolo</h3>
-        <p>Breve descrizione del lavoro svolto, del contesto e dei risultati ottenuti.</p>
-        <a href="#">Scopri →</a>
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-photo-wrap">
+        <img src="foto.JPG" alt="Sergio Frenna" class="hero-photo" />
+        <span class="hero-ornament">✦</span>
       </div>
-
-      <div class="card">
-        <p class="card-tag">Sviluppo web</p>
-        <h3>Titolo applicazione</h3>
-        <p>Descrizione dell'applicazione: tecnologie utilizzate, obiettivo e impatto.</p>
-        <a href="#">Vedi progetto →</a>
+      <div class="hero-info">
+        <p class="hero-role">Storico dell'Arte · Digital Culture Specialist</p>
+        <h1>Sergio Frenna</h1>
+        <p class="hero-title">Dove la cultura incontra il codice</p>
+        <div class="hero-links">
+          <a href="mailto:sergio.frenna@gmail.com">✉ Email</a>
+          <a href="https://github.com/sergiophrenna" target="_blank" rel="noopener">⌥ GitHub</a>
+          <a href="https://www.linkedin.com/in/sergio-frenna-97a943205/" target="_blank" rel="noopener">↗ LinkedIn</a>
+        </div>
+        <div class="hero-tags">
+          <span>Storia dell'Arte</span>
+          <span>Digital Humanities</span>
+          <span>Patrimonio Culturale</span>
+          <span>Web Development</span>
+          <span>Ricerca</span>
+        </div>
       </div>
-
-      <div class="card">
-        <p class="card-tag">Divulgazione</p>
-        <h3>Titolo pubblicazione</h3>
-        <p>Articolo, saggio o contributo divulgativo su un tema storico-artistico.</p>
-        <a href="#">Leggi →</a>
-      </div>
-
-      <div class="card">
-        <p class="card-tag">Patrimonio digitale</p>
-        <h3>Titolo progetto</h3>
-        <p>Progetto di digitalizzazione o valorizzazione del patrimonio culturale.</p>
-        <a href="#">Approfondisci →</a>
-      </div>
-
     </div>
   </section>
 
-  <!-- CONTATTI -->
-  <section id="contatti">
-    <p class="section-label">Contatti</p>
-    <h2>Parliamoci</h2>
-    <p>
-      Sei interessato a una consulenza storico-artistica, a un progetto digitale o a una
-      collaborazione? Scrivimi: rispondo entro 24 ore.
-    </p>
+  <div class="sections-wrap">
 
-    <div class="contact-links">
-      <a href="mailto:sergio.frenna@gmail.com">
-        ✉ sergio.frenna@gmail.com
-      </a>
-      <a href="https://github.com/sergiophrenna" target="_blank" rel="noopener">
-        ⌥ GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/sergio-frenna-97a943205/" target="_blank" rel="noopener">
-        ↗ LinkedIn
-      </a>
-    </div>
-  </section>
+    <!-- CHI SONO -->
+    <section class="section" id="chi-sono">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-label-top">Profilo</span>
+      </div>
+      <h2>Chi sono</h2>
+      <p>
+        Mi chiamo Sergio Frenna e lavoro all'intersezione tra due mondi apparentemente lontani:
+        la storia dell'arte e la cultura digitale. Questa doppia formazione mi permette di
+        affrontare problemi complessi con strumenti sia umanistici che tecnici.
+      </p>
+      <p>
+        Come storico dell'arte mi occupo di ricerca, catalogazione, perizie e divulgazione,
+        con particolare attenzione al patrimonio culturale italiano e alle tecniche pittoriche
+        dal Rinascimento all'Ottocento. Come digital culture specialist applico le tecnologie
+        digitali alla valorizzazione e alla diffusione del patrimonio artistico.
+      </p>
+      <p>
+        Credo che la tecnologia, se ben applicata, possa essere uno strumento potente per
+        preservare, valorizzare e rendere accessibile la bellezza dell'arte.
+      </p>
+    </section>
+
+    <!-- DIDATTICA -->
+    <section class="section" id="didattica">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-label-top">Didattica</span>
+      </div>
+      <h2>Attività Didattica</h2>
+      <p>Seminari, tutoraggio e attività di formazione in ambito storico-artistico e digitale.</p>
+      <br />
+      <div class="teaching-grid">
+
+        <div class="teach-card">
+          <div class="teach-meta">
+            <span class="badge-year">2025 – oggi</span>
+            <span class="badge-type">Tutor</span>
+          </div>
+          <div class="teach-body">
+            <h3>Tutor Junior — Arte Moderna</h3>
+            <p class="teach-inst">Università di Catania · Dipartimento di Scienze Umanistiche</p>
+            <ul>
+              <li>Lezioni pratiche per corsi di Arte Moderna per studenti triennali.</li>
+              <li>Conferenza di Storia Sociale dell'Arte: <em>«Mecenati e Pittori: Francis Haskell e Venezia»</em>.</li>
+              <li>Tutoraggio e orientamento accademico; supporto per analisi critica e metodologia per tesi.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teach-card">
+          <div class="teach-meta">
+            <span class="badge-year">2025 – oggi</span>
+            <span class="badge-type">Docente</span>
+          </div>
+          <div class="teach-body">
+            <h3>Docente — DICOLAB. Digital Culture</h3>
+            <p class="teach-inst">HSi26 · Contenuti digitali per il patrimonio culturale</p>
+            <ul>
+              <li>Produzione tecnica e strategica di asset digitali (immagini, video, modelli 3D).</li>
+              <li>Studio di come i contenuti digitali possano arricchire l'esperienza dei beni culturali.</li>
+              <li>Sviluppo di asset «phygital» per connettere l'opera fisica al suo corrispettivo virtuale.</li>
+            </ul>
+            <p class="teach-inst" style="margin-top:0.8rem;">HSi09 · Strumenti innovativi per la promozione del patrimonio</p>
+            <ul>
+              <li>Nuove tecnologie per il coinvolgimento del pubblico e la comunicazione del patrimonio.</li>
+              <li>Edutainment e Gamification: approcci ludico-educativi per la partecipazione attiva dei visitatori.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teach-card">
+          <div class="teach-meta">
+            <span class="badge-year">2023 – 2024</span>
+            <span class="badge-type">Divulgazione</span>
+          </div>
+          <div class="teach-body">
+            <h3>Divulgazione Educativa e Valorizzazione</h3>
+            <p class="teach-inst">Attività di mediazione culturale e allestimento</p>
+            <ul>
+              <li>Pianificazione e realizzazione di iniziative di divulgazione culturale.</li>
+              <li>Visite guidate e attività educative per la valorizzazione del patrimonio artistico.</li>
+              <li>Contributo all'organizzazione e all'allestimento della mostra <em>«Retablo»</em>.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBBLICAZIONI -->
+    <section class="section" id="pubblicazioni">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-label-top">Ricerca</span>
+      </div>
+      <h2>Pubblicazioni</h2>
+      <p>Saggi, contributi in catalogo e recensioni scientifiche.</p>
+      <br />
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">2025</span>
+            <span class="pub-type">Saggio</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">«L'impietà» del male nello Spasimo di Raffaello</p>
+            <p class="pub-authors">S. Frenna</p>
+            <p class="pub-venue">In: <em>Retablo. Consolo e le Arti</em>, catalogo della mostra</p>
+            <p class="pub-note">In corso di pubblicazione</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">2024</span>
+            <span class="pub-type">Saggio</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Collezioni di armi a Catania: una proposta di provenienza per il corsaletto da piede del Castello Ursino</p>
+            <p class="pub-authors">S. Frenna</p>
+            <p class="pub-note">In corso di pubblicazione</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">2024</span>
+            <span class="pub-type">Recensione</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">R. Cruciata, M.C. Di Natale, S. Intorre (a cura di), <em>Arti Decorative, costume e società nel Mediterraneo tra XVIII e XIX secolo</em></p>
+            <p class="pub-authors">S. Frenna</p>
+            <p class="pub-venue">«Siculorum Gymnasium», LXXVII, X, 2024, pp. 403–405</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">2023</span>
+            <span class="pub-type">Recensione</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">S. Anselmo, <em>Legni mediterranei: simulacri intagliati nella Sicilia del Settecento</em></p>
+            <p class="pub-authors">S. Frenna</p>
+            <p class="pub-venue">«Siculorum Gymnasium», LXXVI, IX, 2023, pp. 419–421</p>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">2022</span>
+            <span class="pub-type">Recensione</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title"><em>Dipingere e scolpire in Sicilia tra Medioevo ed Età Moderna. Con un'antologia di restauri della Soprintendenza di Enna</em>, a cura di P. Russo</p>
+            <p class="pub-authors">S. Frenna</p>
+            <p class="pub-venue">«Siculorum Gymnasium», LXXV, VIII, 2022, pp. 633–635</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="section" id="contatti">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-label-top">Contatti</span>
+      </div>
+      <h2>Parliamoci</h2>
+      <p>
+        Sei interessato a una consulenza storico-artistica, a un progetto digitale o a una
+        collaborazione? Scrivimi: rispondo entro 24 ore.
+      </p>
+      <div class="contact-grid">
+        <a href="mailto:sergio.frenna@gmail.com">✉ sergio.frenna@gmail.com</a>
+        <a href="https://github.com/sergiophrenna" target="_blank" rel="noopener">⌥ GitHub</a>
+        <a href="https://www.linkedin.com/in/sergio-frenna-97a943205/" target="_blank" rel="noopener">↗ LinkedIn</a>
+      </div>
+    </section>
+
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Sergio Frenna — Tutti i diritti riservati</p>
+    <p>&copy; 2026 Sergio Frenna · Storico dell'Arte &amp; Digital Culture Specialist · sergio.frenna@gmail.com</p>
   </footer>
 
 </body>
