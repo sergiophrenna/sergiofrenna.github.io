@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sergio Frenna — Storico dell'Arte &amp; Programmatore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1a1208;
+      --accent:   #7b4f28;
+      --light:    #f5f0e8;
+      --mid:      #e8dece;
+      --muted:    #6b5e4e;
+      --max-w:    820px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--light);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    nav .brand {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    header {
+      background: var(--ink);
+      color: var(--light);
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      border-bottom: 3px solid var(--accent);
+    }
+    header .ornament {
+      font-size: 2rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+    header .subtitle {
+      margin-top: 0.75rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--mid);
+    }
+    header .tagline {
+      margin-top: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    section + section {
+      border-top: 1px solid var(--mid);
+    }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+    p { margin-bottom: 1rem; color: var(--muted); }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      text-align: center;
+      margin: 2rem 0;
+      color: var(--accent);
+      font-size: 1.4rem;
+      letter-spacing: 0.4em;
+    }
+
+    /* ── PORTFOLIO GRID ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--mid);
+      border-top: 3px solid var(--accent);
+      padding: 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .card-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+    }
+    .card a:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── CONTACT ── */
+    .contact-links {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--mid);
+      padding: 0.6rem 1.2rem;
+      background: #fff;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .contact-links a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      nav ul { gap: 1.2rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="brand">Sergio Frenna</span>
+    <ul>
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <span class="ornament">✦</span>
+    <h1>Sergio Frenna</h1>
+    <p class="subtitle">Storico dell'Arte &amp; Programmatore</p>
+    <p class="tagline">Dove la cultura incontra il codice</p>
+  </header>
+
+  <!-- CHI SONO -->
+  <section id="chi-sono">
+    <p class="section-label">Profilo</p>
+    <h2>Chi sono</h2>
+    <p>
+      Mi chiamo Sergio Frenna e lavoro all'intersezione tra due mondi apparentemente lontani:
+      la storia dell'arte e lo sviluppo software. Questa doppia formazione mi permette di
+      affrontare problemi complessi con strumenti sia umanistici che tecnici.
+    </p>
+    <p>
+      Come storico dell'arte mi occupo di ricerca, catalogazione, perizie e divulgazione,
+      con particolare attenzione al patrimonio culturale italiano e alle tecniche pittoriche
+      dal Rinascimento all'Ottocento. Come programmatore realizzo applicazioni web, strumenti
+      per la gestione dei beni culturali e soluzioni digitali su misura.
+    </p>
+    <p>
+      Credo che la tecnologia, se ben applicata, possa essere uno strumento potente per
+      preservare, valorizzare e rendere accessibile la bellezza dell'arte.
+    </p>
+    <div class="divider">· · ·</div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <p class="section-label">Lavori</p>
+    <h2>Portfolio &amp; Progetti</h2>
+    <p>Una selezione di pubblicazioni, ricerche e progetti digitali.</p>
+
+    <div class="portfolio-grid">
+
+      <div class="card">
+        <p class="card-tag">Ricerca storico-artistica</p>
+        <h3>Titolo progetto / articolo</h3>
+        <p>Breve descrizione del lavoro svolto, del contesto e dei risultati ottenuti.</p>
+        <a href="#">Scopri →</a>
+      </div>
+
+      <div class="card">
+        <p class="card-tag">Sviluppo web</p>
+        <h3>Titolo applicazione</h3>
+        <p>Descrizione dell'applicazione: tecnologie utilizzate, obiettivo e impatto.</p>
+        <a href="#">Vedi progetto →</a>
+      </div>
+
+      <div class="card">
+        <p class="card-tag">Divulgazione</p>
+        <h3>Titolo pubblicazione</h3>
+        <p>Articolo, saggio o contributo divulgativo su un tema storico-artistico.</p>
+        <a href="#">Leggi →</a>
+      </div>
+
+      <div class="card">
+        <p class="card-tag">Patrimonio digitale</p>
+        <h3>Titolo progetto</h3>
+        <p>Progetto di digitalizzazione o valorizzazione del patrimonio culturale.</p>
+        <a href="#">Approfondisci →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <p class="section-label">Contatti</p>
+    <h2>Parliamoci</h2>
+    <p>
+      Sei interessato a una consulenza storico-artistica, a un progetto digitale o a una
+      collaborazione? Scrivimi: rispondo entro 24 ore.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:sergio.frenna@gmail.com">
+        ✉ sergio.frenna@gmail.com
+      </a>
+      <a href="https://github.com/sergiofrenna" target="_blank" rel="noopener">
+        ⌥ GitHub
+      </a>
+      <a href="https://linkedin.com/in/sergiofrenna" target="_blank" rel="noopener">
+        ↗ LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Sergio Frenna — Tutti i diritti riservati</p>
+  </footer>
+
+</body>
+</html>
