@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sergio Frenna — Storico dell'Arte &amp; Digital culture specialist</title>
+  <title>Sergio Frenna — Storico dell'Arte &amp; Digital Culture Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -96,6 +96,29 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
+    }
+
+    /* ── PROFILE PHOTO ── */
+    .profile-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .profile-wrap img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--accent);
+      flex-shrink: 0;
+    }
+    .profile-text { flex: 1; }
+    @media (max-width: 600px) {
+      .profile-wrap { flex-direction: column; align-items: center; }
+      .profile-wrap img { width: 120px; height: 120px; }
+      .profile-text { text-align: center; }
     }
 
     /* ── SECTIONS ── */
@@ -245,7 +268,7 @@
   <header>
     <span class="ornament">✦</span>
     <h1>Sergio Frenna</h1>
-    <p class="subtitle">Storico dell'Arte &amp;  Digital culture specialist</p>
+    <p class="subtitle">Storico dell'Arte &amp; Digital Culture Specialist</p>
     <p class="tagline">Dove la cultura incontra il codice</p>
   </header>
 
@@ -253,21 +276,26 @@
   <section id="chi-sono">
     <p class="section-label">Profilo</p>
     <h2>Chi sono</h2>
-    <p>
-      Mi chiamo Sergio Frenna e lavoro all'intersezione tra due mondi apparentemente lontani:
-      la storia dell'arte e lo sviluppo software. Questa doppia formazione mi permette di
-      affrontare problemi complessi con strumenti sia umanistici che tecnici.
-    </p>
-    <p>
-      Come storico dell'arte mi occupo di ricerca, catalogazione, perizie e divulgazione,
-      con particolare attenzione al patrimonio culturale italiano e alle tecniche pittoriche
-      dal Rinascimento all'Ottocento. Come programmatore realizzo applicazioni web, strumenti
-      per la gestione dei beni culturali e soluzioni digitali su misura.
-    </p>
-    <p>
-      Credo che la tecnologia, se ben applicata, possa essere uno strumento potente per
-      preservare, valorizzare e rendere accessibile la bellezza dell'arte.
-    </p>
+    <div class="profile-wrap">
+      <img src="foto.jpg" alt="Sergio Frenna" />
+      <div class="profile-text">
+        <p>
+          Mi chiamo Sergio Frenna e lavoro all'intersezione tra due mondi apparentemente lontani:
+          la storia dell'arte e la cultura digitale. Questa doppia formazione mi permette di
+          affrontare problemi complessi con strumenti sia umanistici che tecnici.
+        </p>
+        <p>
+          Come storico dell'arte mi occupo di ricerca, catalogazione, perizie e divulgazione,
+          con particolare attenzione al patrimonio culturale italiano e alle tecniche pittoriche
+          dal Rinascimento all'Ottocento. Come digital culture specialist applico le tecnologie
+          digitali alla valorizzazione e alla diffusione del patrimonio artistico.
+        </p>
+        <p>
+          Credo che la tecnologia, se ben applicata, possa essere uno strumento potente per
+          preservare, valorizzare e rendere accessibile la bellezza dell'arte.
+        </p>
+      </div>
+    </div>
     <div class="divider">· · ·</div>
   </section>
 
